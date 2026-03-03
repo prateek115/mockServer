@@ -24,6 +24,25 @@ const flowService = {
 
     return result.recordset[0];
   },
+
+  async getivrqueuedata(inbound_number, service) {
+    const db = await getPool();
+     const result = await db.request()
+    .input('inboundnumber', sql.VarChar, inbound_number)
+    .input('service', sql.VarChar, service)
+    .query(`
+      UPDATE flow_requests
+      SET verified = 1
+      OUTPUT inserted.*
+      WHERE inbound_number = @inboundnumber
+      AND service = @service
+      AND verified = 0
+    `);
+
+    return result.recordset;
+  },
+
+
 };
 
 module.exports = flowService;

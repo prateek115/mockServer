@@ -14,6 +14,7 @@ async function initDB() {
       projectname    NVARCHAR(255) NOT NULL,
       skillname      NVARCHAR(255) NOT NULL,
       raw_payload    NVARCHAR(MAX) NOT NULL,
+      verified       BIT NOT NULL,
       created_at     DATETIME      DEFAULT GETDATE()
     )
   `);

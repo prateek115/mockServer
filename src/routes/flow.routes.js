@@ -7,6 +7,7 @@ const router = Router();
 
 // POST /api/flow/request
 router.post("/request", validate(flowRequestSchema), flowController.createFlowRequest);
+router.get("/request", flowController.getivrqueuedata);
 
 // ── Add more flow routes here ─────────────────────────────────────────────────
 // router.get("/request/:id", flowController.getFlowRequest);

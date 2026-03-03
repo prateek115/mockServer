@@ -6,6 +6,7 @@ const flowRoutes = require("./flow.routes");
 const router = Router();
 
 router.use("/flow", flowRoutes);
+router.use("/getivrqueuedata", flowRoutes);
 // router.use("/users", userRoutes);
 
 module.exports = router;
